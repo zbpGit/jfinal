@@ -1,0 +1,18 @@
+ #define templateFunction()
+    我是templateFunction
+ #end
+
+ #define template2Function(a)
+    我是template2Function,#(a)
+ #end
+
+ #define templatFunction()
+    #set(a=["菜单1","菜单2","菜单3"])
+    #for(x:a)
+        <p>#(x)</p>
+    #end
+ #end
+
+ #define yemianFunction()
+    我是：<input type="text" name="i">
+ #end
