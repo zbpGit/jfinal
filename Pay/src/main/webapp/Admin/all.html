@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>select</title>
+    <style type="text/css">
+        td{width:300px;overflow:hidden}
+        table{margin: 0 auto}
+        p{margin: 0 auto}
+    </style>
+</head>
+<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+    function om() {
+        $.ajax({
+            type:'post',
+            url : 'http://pay.qingmeng168.com/pay/Admin/switchover',
+            success:function(data){
+                if (data == '1'){
+                    alert("没有数据可以切换，请添加新数据")
+                }else if (data == '0'){
+                    alert("切换成功")
+                    location.href='http://pay.qingmeng168.com/pay/Admin/index'
+                }
+            }
+        });
+    }
+</script>
+<body>
+<br>
+<p><h1>当前所使用的配置</h1></p>
+<table width="800" border="1" style="word-wrap:break-word;word-break:break-all;">
+    <tr>
+        <td>商户号</td>
+        <td>subAppId</td>
+        <td>appsecret</td>
+        <td>秘钥</td>
+        <td>授权地址</td>
+        <td>异步通知</td>
+        <td>第三方支付请求</td>
+        <td>时间</td>
+        <td>是否使用</td>
+    </tr>
+    <tr>
+        <td>#(pay.merNo)</td>
+        <td>#(pay.subAppId)</td>
+        <td>#(pay.appsecret)</td>
+        <td>#(pay.key)</td>
+        <td>#(pay.url)</td>
+        <td>#(pay.notifyUrl)</td>
+        <td>#(pay.payUrl)</td>
+        <td>#(pay.times)</td>
+        <td>#(pay.present)</td>
+    </tr>
+</table>
+<br><hr><br>
+<table width="800" border="1" style="word-wrap:break-word;word-break:break-all;">
+    <tr>
+        <td><a href="upload.html">添加</a></td>
+        <td><input type="button" onclick="om()" value="切換"></td>
+    </tr>
+    <tr>
+        <td>商户号</td>
+        <td>subAppId</td>
+        <td>appsecret</td>
+        <td>秘钥</td>
+        <td>授权地址</td>
+        <td>异步通知</td>
+        <td>第三方支付请求</td>
+        <td>时间</td>
+        <td>是否使用</td>
+    </tr>
+    #for(x:ListPay)
+    <tr>
+        <td>#(x.merNo)</td>
+        <td>#(x.subAppId)</td>
+        <td>#(x.appsecret)</td>
+        <td>#(x.key)</td>
+        <td>#(x.url)</td>
+        <td>#(x.notifyUrl)</td>
+        <td>#(x.payUrl)</td>
+        <td>#(x.times)</td>
+        <td>#(x.present)</td>
+    </tr>
+    #end
+</table>
+</body>
+</html>
