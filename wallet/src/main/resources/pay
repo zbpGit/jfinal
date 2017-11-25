@@ -1,0 +1,17 @@
+CREATE TABLE `pay` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
+	`merNo` VARCHAR(255) NOT NULL COMMENT '商户号' COLLATE 'utf8_general_ci',
+	`subAppId` VARCHAR(255) NULL DEFAULT NULL COMMENT 'appid' COLLATE 'utf8_general_ci',
+	`appsecret` VARCHAR(255) NULL DEFAULT NULL COMMENT 'appsecret' COLLATE 'utf8_general_ci',
+	`key` VARCHAR(255) NULL DEFAULT NULL COMMENT 'key' COLLATE 'utf8_general_ci',
+	`url` VARCHAR(255) NULL DEFAULT NULL COMMENT '域名' COLLATE 'utf8_general_ci',
+	`notifyUrl` VARCHAR(255) NULL DEFAULT NULL COMMENT '请求地址' COLLATE 'utf8_general_ci',
+	`payUrl` VARCHAR(255) NULL DEFAULT NULL COMMENT '回调地址' COLLATE 'utf8_general_ci',
+	`times` VARCHAR(255) NULL DEFAULT NULL COMMENT '时间' COLLATE 'utf8_general_ci',
+	`present` INT(11) NULL DEFAULT '0' COMMENT '当前使用配置',
+	INDEX `id` (`id`)
+)
+COLLATE='latin1_danish_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=2
+;
